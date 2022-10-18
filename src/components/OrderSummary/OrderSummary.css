@@ -1,0 +1,47 @@
+.order-summary{
+    text-align: center;
+    font-weight: 600;
+    color: #1C2B35;
+    font-size: 25px;
+    margin: 50px 0;
+}
+.order-details{
+    margin-left: 5%;
+}
+.order-details p{
+    font-size: 20px;
+    color: #2A414F;
+}
+h3{
+    margin: 40px 0;
+    font-size: 25px;
+    text-align: center;
+}
+.button{
+    margin-top: 40px;
+}
+.clear-cart{
+    background-color: #FF3030;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    border-radius: 20px;
+    display: block;
+    padding: 23px 0;
+    margin: 20px 0;
+    width: 80%;
+    margin: 0 auto;
+}
+.review-order{
+    background-color: #FF9900;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    border-radius: 20px;
+    display: block;
+    padding: 23px 0;
+    margin: 20px 0;
+    width: 80%;
+    margin: 0 auto;
+}
+
