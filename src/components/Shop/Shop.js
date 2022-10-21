@@ -1,13 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import Product from '../Product/Product';
+import OrderSummary from '../OrderSummary/OrderSummary';
 import './Shop.css'
+import { addToDb, getStoredCard } from '../../utilities/fakedb';
 
 const Shop = () => {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
-    const handleAddToCart = (product) =>{
-        const newCart = [...cart, product];
+    const handleAddToCart = (selectedProduct) =>{
+        let newCart =[];
+        const exists = cart.find(product => product.id === selectedProduct.id);
+        if(!exists){
+            selectedProduct.quantity = 1;
+            newCart = [...cart, selectedProduct];
+        }
+        else{
+            const rest = cart.filter(product => product.id !== selectedProduct.id);
+            exists.quantity = exists.quantity + 1;
+            newCart = [...rest, exists];
+        }
+        
         setCart(newCart);
+        addToDb(selectedProduct.id);
 
     }
     useEffect(()=>{
@@ -15,6 +29,22 @@ const Shop = () => {
         .then(res => res.json())
         .then(data =>setProducts(data))
     },[])
+
+    useEffect(()=>{
+        const storedCard = getStoredCard();
+        const savedCard = [];
+        // console.log(storedCard);
+        for(const id in storedCard){
+            const addedProduct = products.find(product => product.id === id);
+            if(addedProduct){
+                const quantity = storedCard[id];
+                addedProduct.quantity = quantity;
+                savedCard.push(addedProduct);
+                // console.log(addedProduct);
+            }
+        }
+        setCart(savedCard);
+    },[products])
     
     return (
         <div className='shop-container'>
@@ -31,13 +61,7 @@ const Shop = () => {
                 </div>
                 </div>
             <div className="cart">
-                <h1>Order Summary</h1>
-                <p>Selected Items: {cart.length}</p>
-                <p>Total Price: 0</p>
-                <p>Total Shipping Charge: 0</p>
-                <h3>Grand Total: </h3>
-                <p className='button'><button className='clear-cart'>Clear Cart</button></p>
-                <p><button className='review-order'>Review Order</button></p>
+                <OrderSummary cart = {cart}></OrderSummary>
             </div>
             
         </div>
