@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './OrderSummary.css';
 
 const OrderSummary = (props) => {
-    const {cart} = props;
-    console.log(cart);
+    const {cart, clearCart} = props;
+    // console.log(cart);
     let price = 0;
     let shipping = 0;
     let grandTotal = 0;
@@ -14,9 +15,11 @@ const OrderSummary = (props) => {
         shipping = shipping + product.shipping;
         // console.log(shipping);
     }
+    
     let tax = (price * 0.1).toFixed(2);
     tax = parseFloat(tax)
-    const total = price + shipping + tax + grandTotal;
+    let total = price + shipping + tax + grandTotal;
+    
     
     return (
         <div className='cart-part'>
@@ -28,8 +31,8 @@ const OrderSummary = (props) => {
             <p>Total Tax: ${tax}</p>
             <h3>Grand Total: ${total}</h3>
             </div>
-            <p className='button'><button className='clear-cart'>Clear Cart</button></p>
-            <p><button className='review-order'>Review Order</button></p>
+            <p className='button' onClick={clearCart}><button className='clear-cart'>Clear Cart</button></p>
+            <p><Link to='/orders'><button className='review-order'>Review Order</button></Link></p>
         </div>
     );
 };

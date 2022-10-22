@@ -23,6 +23,7 @@ h3{
 }
 .button{
     margin-top: 40px;
+    width: 100%;
 }
 .clear-cart{
     background-color: #FF3030;
@@ -33,7 +34,7 @@ h3{
     display: block;
     padding: 23px 0;
     margin: 20px 0;
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
 }
 .review-order{
@@ -45,7 +46,9 @@ h3{
     display: block;
     padding: 23px 0;
     margin: 20px 0;
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
 }
-
+a{
+    text-decoration: none;
+}
