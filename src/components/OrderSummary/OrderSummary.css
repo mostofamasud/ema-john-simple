@@ -21,11 +21,11 @@ h3{
     font-size: 25px;
     text-align: center;
 }
-.button{
+.buttonCustom{
     margin-top: 40px;
     width: 100%;
 }
-.clear-cart{
+.clear-cartCustom{
     background-color: #FF3030;
     color: #fff;
     font-size: 18px;
@@ -37,7 +37,7 @@ h3{
     width: 100%;
     margin: 0 auto;
 }
-.review-order{
+.review-orderCustom{
     background-color: #FF9900;
     color: #fff;
     font-size: 18px;
@@ -49,6 +49,6 @@ h3{
     width: 100%;
     margin: 0 auto;
 }
-a{
+.link-border{
     text-decoration: none;
 }

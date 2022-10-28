@@ -31,8 +31,8 @@ const OrderSummary = (props) => {
             <p>Total Tax: ${tax}</p>
             <h3>Grand Total: ${total}</h3>
             </div>
-            <p className='button' onClick={clearCart}><button className='clear-cart'>Clear Cart</button></p>
-            <p><Link to='/orders'><button className='review-order'>Review Order</button></Link></p>
+            <p className='buttonCustom' onClick={clearCart}><button className='clear-cartCustom'>Clear Cart</button></p>
+            <p><Link to='/orders' className='link-border'><button className='review-orderCustom'>Review Order</button></Link></p>
         </div>
     );
 };
